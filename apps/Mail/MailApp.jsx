@@ -1,14 +1,20 @@
-import { mailService } from "./services/mailService.js";
+import { mailService } from '../Mail/mail.service/mailService.js';
 
 
-export class EmailApp extends React.Component {
+export class MailApp extends React.Component {
     
-
-    bigTest(){
-
+    
+    componentDidMount(){
+        
+        console.log('אני אופטימי');
         mailService.test();
         mailService.testReturn();
     }
+    
+    render() {
+        return <div>STAM NETO MAIL APP</div>
+    }
+
 
 
 }
