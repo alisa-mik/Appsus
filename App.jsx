@@ -1,12 +1,13 @@
 import { AppHeader } from './cmps/AppHeader.jsx'
 import { AppFooter } from './cmps/AppFooter.jsx'
-
+// import { BookApp } from './pages/BookApp.jsx'
+import { MailApp } from 'apps/Mail/MailApp.jsx';
+console.log('MailApp:', MailApp)
 
 export function App() {
     return (
         // <Router>
         <section className="page-container">
-           
            <AppHeader />
            
            <div className="main">
@@ -18,9 +19,6 @@ export function App() {
             
             <AppFooter />
 
-           
-
-        
         </section>
         // </Router>
     )
