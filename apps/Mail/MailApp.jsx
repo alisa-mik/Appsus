@@ -1,37 +1,34 @@
-<<<<<<< HEAD
-import { mailService } from '../Mail/mail.service/mailService.js';
-
-
+import { mailService } from './mail.service/mailService.js';
 export class MailApp extends React.Component {
-    
-    
-    componentDidMount(){
-        
-        console.log('אני אופטימי');
-        mailService.test();
-        mailService.testReturn();
+
+
+    state = {
+        emails: [],
+        myMail: '',
+        unreadCount: null,
+        filterBy: {
+            mailText: '',
+            currMailBox: 'inbox',
+            isUnread: false
+        },
     }
-    
-    render() {
-        return <div>STAM NETO MAIL APP</div>
+
+    componentDidMount() {
+        this.loadEmails();
+        mailService.myMail()
+            .then(myMail => this.setState({ myMail }));
     }
-=======
-export class MailApp extends React.Component {
-// import { mailService } from "./services/mailService.js";
-
 
     
-    // bigTest(){
-
-    //     mailService.test();
-    //     mailService.testReturn();
-    // }
->>>>>>> e0f6f3641a4b9eb40e39ff1086a4fbca64948c14
+    loadEmails = () => {
+        mailService.query().then(emails => this.setState({ emails }));
+    }
 
 
     render() {
         return (
             <h1> I am your Email</h1>
+            // <h1> {this.state.emails}</h1>
 
        )}
         }
