@@ -1,0 +1,40 @@
+body {
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.book-list * {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.book-preview {
+    box-shadow: 0 0px 3px 2px #7e7d7d78;
+    padding: 10px;
+    text-align: center;
+    width: 220px;
+}
+.book-preview img {
+    width: 170px;
+}
+
+.book-filter {
+    padding: 15px 0;
+}
+.book-filter label:not(:first-of-type) {
+    margin-left: 10px;
+}
+.book-filter input {
+    margin-left: 5px;
+}
+
+
