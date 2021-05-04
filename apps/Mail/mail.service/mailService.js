@@ -5,6 +5,7 @@ export const mailService = {
     _createEmails,
     query,
     myMail,
+    getById,
 }
 
 const KEY = 'Emails';
@@ -17,7 +18,10 @@ function query() {
     return Promise.resolve(gEmails);
 }
 
-
+function getById(emailId) {
+    const email = gEmails.find(email => email.id === emailId);
+    return Promise.resolve(email);
+}
 
 function myMail() {
     return Promise.resolve(MY_MAIL);
