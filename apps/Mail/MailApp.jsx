@@ -1,14 +1,22 @@
-import { mailService } from "./services/mailService.js";
+export class MailApp extends React.Component {
+// import { mailService } from "./services/mailService.js";
 
 
-export class EmailApp extends React.Component {
+    
+    // bigTest(){
+
+    //     mailService.test();
+    //     mailService.testReturn();
+    // }
+
+
+    render() {
+        return (
+            <h1> I am your Email</h1>
+
+       )}
+        }
+
     
 
-    bigTest(){
-
-        mailService.test();
-        mailService.testReturn();
-    }
-
-
-}
+ 
