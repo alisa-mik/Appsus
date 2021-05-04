@@ -1,5 +1,8 @@
 body {
-    background-color: lightgoldenrodyellow;
+    background-color: white;
+    background-image: linear-gradient(transparent 50%, rgba(255, 0, 0, .5) 50%);
+    background-size: 150px 150px;
+    text-align: center;
     text-align: center;
 }
 
@@ -12,6 +15,7 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .book-list * {
     margin-left: 20px;
     margin-bottom: 20px;
@@ -23,6 +27,7 @@ h2 {
     text-align: center;
     width: 220px;
 }
+
 .book-preview img {
     width: 170px;
 }
@@ -30,11 +35,11 @@ h2 {
 .book-filter {
     padding: 15px 0;
 }
+
 .book-filter label:not(:first-of-type) {
     margin-left: 10px;
 }
+
 .book-filter input {
     margin-left: 5px;
 }
-
-
