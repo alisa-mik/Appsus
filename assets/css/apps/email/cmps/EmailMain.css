@@ -1,11 +1,103 @@
-
-
-.email-list{
-    border: 1px solid black;
-    color: red;
-    background-color:palegreen
+.email-bgc {
+    background-color: white;
+    /* background-image: linear-gradient(transparent 50%, rgba(255, 0, 0, .5) 50%); */
+    /* background-size: 150px 150px; */
+    height: 100vh;
 }
 
-.email-list-headline{
-    background-color:blue;
+
+.email-list {
+    margin: auto;
+    width: 60%;
+    border: 8px solid rgba(255, 0, 0, 0.5);
+    border-radius: 20px;
+    background-color: white;
+    text-align: left;
+    margin-top: 20px;
+
+}
+
+.email-list-headline {
+    width: 100%;
+
+
+    /* background-color:rgba(255, 0, 0, 0.5); */
+    border-bottom: 5px solid rgba(255, 0, 0, 0.0);
+    border-radius: 20px 20px 0 0;
+    border-bottom: 5px solid rgba(255, 0, 0, 0.5);
+}
+
+.email-list-headline p,
+.email-list-headline button {
+    background-color: white;
+    color: rgba(255, 0, 0, 0.5);
+    margin: 0;
+    font-size: 1.5rem;
+    border: none;
+    width: 33%;
+    text-align: center;
+    font-weight: bold;
+    font-family: cursive;
+    margin-top: 2px;
+
+}
+
+.email-list-headline p {
+    border-radius: 10px 0 10px 0;
+    box-shadow: 0 1px 0 1px rgba(255, 0, 0, 0.5);
+
+}
+
+#mail-time {
+    border-radius: 20px;
+    font-weight: normal;
+    font-size: 1rem;
+    width: 20%;
+    padding: 5px;
+}
+
+.email-list-headline button {
+    cursor: pointer;
+    border-radius: 0 10px 0 10px;
+    box-shadow: 0 1px 0 1px rgba(255, 0, 0, 0.5);
+}
+
+
+.email-list-headline button:hover {
+    /* background-color:rgba(255, 0, 0, 0.1); */
+    color: grey;
+    box-shadow: 0 3px 3px 0 grey;
+    /* outline: 3px solid white; */
+}
+
+.email-list-line {
+    border-bottom: 1px solid rgba(255, 0, 0, 0.5);
+
+}
+
+.from-to-line {
+    /* justify-content:space-between; */
+    margin-left: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    padding: 10px;
+}
+
+.from {
+    margin-left: 20px;
+}
+
+.to {
+    margin-right: 20px;
+}
+
+.from-to-line input {
+    width: 30px;
+    height: 30px;
+}
+
+.subject-body-time{
+    font-size: 1.1em;
+    justify-content:space-between;
 }

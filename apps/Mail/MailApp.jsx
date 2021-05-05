@@ -27,11 +27,11 @@ export class MailApp extends React.Component {
     }
 
     onUnread = () => {
-        console.log('TESTTT')
         const filterCopy = { ...this.state.filterBy };
-        console.log('filterCopy:', filterCopy)
         filterCopy.isUnread = true;
-        this.setState({ filterBy: filterCopy })
+        this.setState({ filterBy: filterCopy },this.loadEmails)
+        console.log(this.setState({ filterBy: filterCopy }))
+    
     }
 
 
@@ -39,8 +39,9 @@ export class MailApp extends React.Component {
         const emailsForShowing = (this.state.emails)
         return (
             <div>
-                <MailList emails={emailsForShowing} />
-                I am your Email</div>
+                <MailList emails={emailsForShowing}
+                 onUnread={this.onUnread} />
+                 </div>
 
           
 
