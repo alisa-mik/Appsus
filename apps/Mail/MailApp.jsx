@@ -8,8 +8,8 @@ export class MailApp extends React.Component {
         myMail: '',
         unreadCount: null,
         filterBy: {
-            mailText: '',
-            currMailBox: 'inbox',
+            // mailText: '',
+            // currMailBox: 'inbox',
             isUnread: false
         },
     }
@@ -18,7 +18,6 @@ export class MailApp extends React.Component {
         this.loadEmails();
         mailService.myMail()
             .then(myMail => this.setState({ myMail }));
-        console.log('mailService.myMail():', mailService.myMail())
     }
 
 
@@ -27,9 +26,16 @@ export class MailApp extends React.Component {
         console.log('mailService.query:', mailService.query())
     }
 
+    onUnread = () => {
+        console.log('TESTTT')
+        const filterCopy = { ...this.state.filterBy };
+        console.log('filterCopy:', filterCopy)
+        filterCopy.isUnread = true;
+        this.setState({ filterBy: filterCopy })
+    }
+
 
     render() {
-        // const emailsForShowing =(mailService.query())
         const emailsForShowing = (this.state.emails)
         return (
             <div>
