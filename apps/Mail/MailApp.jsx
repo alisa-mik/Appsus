@@ -1,5 +1,6 @@
 import { mailService } from './mail.service/mailService.js';
 import { MailList } from './cmps/MailList.jsx';
+import { SearchLine } from './cmps/SearchLine.jsx';
 import { MailPreview } from './cmps/MailPreview.jsx';
 export class MailApp extends React.Component {
 
@@ -9,7 +10,7 @@ export class MailApp extends React.Component {
         myMail: '',
         unreadCount: null,
         filterBy: {
-            // mailText: '',
+            searchText: '',
             // currMailBox: 'inbox',
             isUnread: false
         },
@@ -23,41 +24,51 @@ export class MailApp extends React.Component {
 
 
     loadEmails = () => {
-        mailService.query().then(emails => this.setState({ emails }));
-        console.log('mailService.query:', mailService.query())
+        mailService.query(this.state.filterBy).then(emails => this.setState({ emails }));
+        // console.log('mailService.query:', mailService.query())
     }
 
     onUnread = () => {
         const filterCopy = { ...this.state.filterBy };
         filterCopy.isUnread = true;
-        this.setState({ filterBy: filterCopy },this.loadEmails)
-        console.log(this.setState({ filterBy: filterCopy }))
-    
+        this.setState({ filterBy: filterCopy }, this.loadEmails)
     }
 
     onDeleteMail = (ev, emailId) => {
         ev.preventDefault();
-        console.log('emailId:', emailId)
-        console.log('ev:', ev)
         mailService.remove(emailId).then(this.loadEmails);
     }
 
-    onToggleIsRead = (ev, emailId) => { 
-        if (ev) ev.preventDefault();             
+    onToggleIsRead = (ev, emailId) => {
+        if (ev) ev.preventDefault();
         mailService.toggleIsRead(emailId).then(this.loadEmails());
     }
+
+    onSetFilter = (key, value) => {
+        console.log('value:', value)
+        const filterCopy = { ...this.state.filterBy };
+        filterCopy[key] = value;
+        // filterCopy.isUnread = false;
+        this.setState({ filterBy: filterCopy },() => this.loadEmails(this.state.filterBy))
+    }
+
 
 
 
     render() {
         const emailsForShowing = (this.state.emails)
         return (
-            <div>
-                <MailList emails={emailsForShowing}
-                 onUnread={this.onUnread} />
-                 </div>
 
-          
+            
+            <div>
+
+                <SearchLine setFilter={this.onSetFilter}/>
+                <MailList emails={emailsForShowing}
+                    onUnread={this.onUnread} onDeleteMail={this.onDeleteMail}
+                    onToggleIsRead={this.onToggleIsRead} />
+            </div>
+
+
 
         )
     }

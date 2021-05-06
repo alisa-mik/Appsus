@@ -8,6 +8,7 @@ export const mailService = {
     getById,
     toggleIsRead,
     getTime,
+    remove,
     
 }
 
@@ -17,8 +18,25 @@ const MY_MAIL = 'a&a@dr-seuss.com'
 var gEmails;
 _createEmails();
 
-function query() {
-    return Promise.resolve(gEmails);
+function query(filterBy) {
+    if (!filterBy) return Promise.resolve(gEmails);
+    const {searchText} = filterBy;
+
+    const filteredEmails = gEmails.filter(email => {
+        return email.body.includes(searchText) 
+        
+        
+    })
+    
+    console.log('filteredEmails:', filteredEmails)
+
+
+    return Promise.resolve(filteredEmails);
+
+
+
+
+
 }
 
 function getTime() {
@@ -53,7 +71,11 @@ function toggleIsRead(emailId) {
     };
 }
 
-
+function remove(emailId) {
+    gEmails = gEmails.filter(email => email.id !== emailId);
+    _saveEmailsToStorage();
+    return Promise.resolve();
+}
 
 
 
