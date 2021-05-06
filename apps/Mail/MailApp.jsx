@@ -32,14 +32,10 @@ export class MailApp extends React.Component {
         const filterCopy = { ...this.state.filterBy };
         filterCopy.isUnread = true;
         this.setState({ filterBy: filterCopy }, this.loadEmails)
-        console.log(this.setState({ filterBy: filterCopy }))
-
     }
 
     onDeleteMail = (ev, emailId) => {
         ev.preventDefault();
-        console.log('emailId:', emailId)
-        console.log('ev:', ev)
         mailService.remove(emailId).then(this.loadEmails);
     }
 
@@ -48,7 +44,13 @@ export class MailApp extends React.Component {
         mailService.toggleIsRead(emailId).then(this.loadEmails());
     }
 
-
+    onSetFilter = (key, value) => {
+        console.log('value:', value)
+        const filterCopy = { ...this.state.filterBy };
+        filterCopy[key] = value;
+        filterCopy.isUnread = false;
+        this.setState({ filterBy: filterCopy })
+    }
 
     render() {
         const emailsForShowing = (this.state.emails)
@@ -56,9 +58,9 @@ export class MailApp extends React.Component {
 
             
             <div>
-                <SearchLine />
+                <SearchLine setFilter={this.onSetFilter}/>
                 <MailList emails={emailsForShowing}
-                    onUnread={this.onUnread} />
+                    onUnread={this.onUnread} onDeleteMail={this.onDeleteMail} />
             </div>
 
 

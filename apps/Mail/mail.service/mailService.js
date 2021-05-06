@@ -8,6 +8,7 @@ export const mailService = {
     getById,
     toggleIsRead,
     getTime,
+    remove,
     
 }
 
@@ -53,7 +54,11 @@ function toggleIsRead(emailId) {
     };
 }
 
-
+function remove(emailId) {
+    gEmails = gEmails.filter(email => email.id !== emailId);
+    _saveEmailsToStorage();
+    return Promise.resolve();
+}
 
 
 

@@ -18,7 +18,7 @@ export function MailPreview({ email, onDeleteMail, onToggleIsRead }) {
                         </p>
                     </div>
                     <div className="btns-container flex">
-                        <button className="garbage" onClick={onDeleteMail}>
+                        <button className="garbage" onClick={ (ev) => onDeleteMail(ev,email.id)}>
                             <img src='assets/icons/general.icons/1361849-interface-button/svg/002-bin.svg' />
                         </button>
                         <button className="toggle-read" onClick={onToggleIsRead}>

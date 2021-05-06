@@ -1,6 +1,8 @@
 import { MailPreview } from '../cmps/MailPreview.jsx';
+import { MailService } from '../mail.service/mailService.js';
 
-export function MailList({ emails, onUnread,getTime }) {
+
+export function MailList({ emails, onUnread,getTime,onDeleteMail }) {
   if (!emails || emails.length === 0) return <div>You don't have any emails...</div>;
 
   return (
@@ -11,13 +13,13 @@ export function MailList({ emails, onUnread,getTime }) {
         <div className="email-list-headline flex space-between">
           <p>Your awesome emails</p>
           <p id="mail-time">{new Date().toLocaleString()}</p>
-          {/* <p id="mail-time">{getTime}</p> */}
+          {/* <p id="mail-time">{MailService.getTime()}</p> */}
           <button onClick={onUnread}>What awaits you?</button>
         </div>
 
         <div className="email-list-line">
         {emails.map(email => {
-          return <MailPreview key={email.id} email={email}
+          return <MailPreview key={email.id} email={email} onDeleteMail={onDeleteMail}
              />
         })}
         </div>
