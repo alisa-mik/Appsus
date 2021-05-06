@@ -15,16 +15,16 @@
     text-align: left;
     margin-top: 20px;
 
+
 }
 
 .email-list-headline {
     width: 100%;
-
-
     /* background-color:rgba(255, 0, 0, 0.5); */
-    border-bottom: 5px solid rgba(255, 0, 0, 0.0);
+    /* border-bottom: 5px solid rgba(255, 0, 0, 0.0); */
     border-radius: 20px 20px 0 0;
     border-bottom: 5px solid rgba(255, 0, 0, 0.5);
+
 }
 
 .email-list-headline p,
@@ -39,12 +39,14 @@
     font-weight: bold;
     font-family: cursive;
     margin-top: 2px;
-
+    justify-content: center;
 }
 
 .email-list-headline p {
     border-radius: 10px 0 10px 0;
     box-shadow: 0 1px 0 1px rgba(255, 0, 0, 0.5);
+    margin: 0;
+
 
 }
 
@@ -71,33 +73,73 @@
 }
 
 .email-list-line {
-    border-bottom: 1px solid rgba(255, 0, 0, 0.5);
+    border-bottom: 5px solid rgba(255, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 
 }
 
 .from-to-line {
-    /* justify-content:space-between; */
     margin-left: 20px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    display: flex;
     padding: 10px;
+    justify-content: space-evenly;
+
+}
+
+p {
+    display: flex;
+    margin: 0;
+}
+
+.from-to-container {
+    width: 90%;
+    padding-top: 5px;
 }
 
 .from {
     margin-left: 20px;
+    align-items: left;
+    width: 50%;
 }
 
+/* .empty{
+    width:30%;
+} */
 .to {
     margin-right: 20px;
+    width: 60%;
 }
 
 .from-to-line input {
     width: 30px;
     height: 30px;
+    border: 1px solid blue;
 }
 
-.subject-body-time{
+.subject-body-time {
     font-size: 1.1em;
-    justify-content:space-between;
+    justify-content: space-between;
+    padding: 0 15px 0 30px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.body {
+    text-align: center;
+}
+.garbage, .toggle-read{
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+.garbage:hover, .toggle-read:hover{
+    border-radius: 50px;
+    box-shadow: 0 1px 1px 1px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 1px 1px 1px grey;
+}
+.garbage img, .toggle-read img{
+    background-size:auto;
+    width:40px;
 }

@@ -1,5 +1,6 @@
 import { mailService } from './mail.service/mailService.js';
 import { MailList } from './cmps/MailList.jsx';
+import { MailPreview } from './cmps/MailPreview.jsx';
 export class MailApp extends React.Component {
 
 
@@ -33,6 +34,19 @@ export class MailApp extends React.Component {
         console.log(this.setState({ filterBy: filterCopy }))
     
     }
+
+    onDeleteMail = (ev, emailId) => {
+        ev.preventDefault();
+        console.log('emailId:', emailId)
+        console.log('ev:', ev)
+        mailService.remove(emailId).then(this.loadEmails);
+    }
+
+    onToggleIsRead = (ev, emailId) => { 
+        if (ev) ev.preventDefault();             
+        mailService.toggleIsRead(emailId).then(this.loadEmails());
+    }
+
 
 
     render() {
