@@ -1,9 +1,39 @@
-body {
-    background-color: lightgoldenrodyellow;
-    text-align: center;
+* {
+    box-sizing: border-box;
+  }
+
+.note {
+    padding: 20px;
 }
 
-h2 {
+.note-list {
+    display: flex;
+}
+
+.note-image {
+width: fit-content;
+background-color: aquamarine;
+
+}
+
+.image {
+   height: 300px;
+}
+
+.note-txt {
+    height: fit-content;
+    width: fit-content;
+    background-color: rgb(255, 160, 36);
+  
+}
+
+.note-video {
+    background-color: rgb(162, 255, 68);
+    width: fit-content;
+}
+
+
+/* h2 {
     font-size: 40px;
 }
 
@@ -35,6 +65,6 @@ h2 {
 }
 .book-filter input {
     margin-left: 5px;
-}
+} */
 
 
