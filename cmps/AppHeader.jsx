@@ -4,7 +4,7 @@ class _AppHeader extends React.Component {
     render() {
         return (
             <header className="main-header flex space-between">
-                <div className="logo"><h2>Dr. Appsus</h2></div>
+                <div className="logo"><h2>Dr. AppSeuss</h2></div>
 
                 <ul className="main-nav flex clear-list">
                     <li><NavLink to="/">Home</NavLink></li>
