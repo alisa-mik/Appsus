@@ -1,5 +1,6 @@
 import { mailService } from './mail.service/mailService.js';
 import { MailList } from './cmps/MailList.jsx';
+import { SearchLine } from './cmps/SearchLine.jsx';
 import { MailPreview } from './cmps/MailPreview.jsx';
 export class MailApp extends React.Component {
 
@@ -30,9 +31,9 @@ export class MailApp extends React.Component {
     onUnread = () => {
         const filterCopy = { ...this.state.filterBy };
         filterCopy.isUnread = true;
-        this.setState({ filterBy: filterCopy },this.loadEmails)
+        this.setState({ filterBy: filterCopy }, this.loadEmails)
         console.log(this.setState({ filterBy: filterCopy }))
-    
+
     }
 
     onDeleteMail = (ev, emailId) => {
@@ -42,8 +43,8 @@ export class MailApp extends React.Component {
         mailService.remove(emailId).then(this.loadEmails);
     }
 
-    onToggleIsRead = (ev, emailId) => { 
-        if (ev) ev.preventDefault();             
+    onToggleIsRead = (ev, emailId) => {
+        if (ev) ev.preventDefault();
         mailService.toggleIsRead(emailId).then(this.loadEmails());
     }
 
@@ -52,12 +53,15 @@ export class MailApp extends React.Component {
     render() {
         const emailsForShowing = (this.state.emails)
         return (
-            <div>
-                <MailList emails={emailsForShowing}
-                 onUnread={this.onUnread} />
-                 </div>
 
-          
+            
+            <div>
+                <SearchLine />
+                <MailList emails={emailsForShowing}
+                    onUnread={this.onUnread} />
+            </div>
+
+
 
         )
     }
