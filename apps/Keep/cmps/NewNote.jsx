@@ -1,10 +1,4 @@
-import { NoteTxt } from './NoteTxt.jsx'
-import { NoteImg } from './NoteImg.jsx'
-import { NoteVideo } from './NoteVideo.jsx'
-import { NoteTodos } from './NoteTodos.jsx'
-
-
-export function NotePreview({ note }) {
+export function NewNote({ note }) {
 
     switch(note.type) {
         case "NoteText": {
@@ -28,11 +22,11 @@ export function NotePreview({ note }) {
               <h4>Hi i'm default</h4>
             )
           }
-        case "NoteTodos": {
-            return (
-                <NoteTodos note={note} />
-            )
-        }
+        // case "NoteTodos": {
+        //     return (
+        //         <NoteTxt note={note} />
+        //     )
+        // }
         // case "Notetxt": {
         //     return (
         //         <NoteTxt note={note} />
@@ -44,11 +38,3 @@ export function NotePreview({ note }) {
         //     )
         // }
     }
-
-    
-   
-
-
-
-
-}

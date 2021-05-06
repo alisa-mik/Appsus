@@ -4,33 +4,49 @@
 
 .note {
     padding: 20px;
+    width:300px;
+    box-shadow: 2px 2px 3px 2px #7e7d7d78;
+    margin-inline-end: 20px;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+
 }
 
 .note-list {
-    display: flex;
+    /* justify-content: center;
+    display: grid;
+    grid-template-columns: repeat( auto-fill, 300px );
+    column-gap: 20px;
+    row-gap: 20px; */
+    /* display: flex;
+    flex-wrap: wrap; */
+    column-count: 3;
+    padding: 20px;
+ 
 }
 
 .note-image {
-width: fit-content;
-background-color: aquamarine;
-
+    background-color: rgb(241, 241, 173);
 }
 
 .image {
-   height: 300px;
+   width: 250px;
 }
 
 .note-txt {
     height: fit-content;
-    width: fit-content;
-    background-color: rgb(255, 160, 36);
+    text-align: start;
+    font-size: 0.9rem;
+
+    background-color: lightgrey;
   
 }
 
 .note-video {
-    background-color: rgb(162, 255, 68);
-    width: fit-content;
+    background-color: lightpink;
+  
 }
+
 
 
 /* h2 {
@@ -68,3 +84,16 @@ background-color: aquamarine;
 } */
 
 
+@media (max-width: 1000px) {
+    
+    .note-list {
+    column-count: 2;
+    }
+}
+
+/* @media (max-width: 690px) {
+    
+    .note-list {
+    column-count: 1;
+    }
+} */

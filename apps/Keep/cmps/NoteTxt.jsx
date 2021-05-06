@@ -1,8 +1,9 @@
 export function NoteTxt({note}) {
     return (
-        <article className="note note-txt">
-            <h4>{note.info.txt}</h4>
-         </article>
+        <div className="note note-txt">
+            <p>{note.info.txt}</p>
+            <button className="btn btn-remove">X</button>
+         </div>
 
     )
 }
