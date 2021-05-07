@@ -4,8 +4,22 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "Itim";
+    src: url(../fonts/Itim-Regular.ttf);
+  }
+  @font-face {
+    font-family: "Fredoka";
+    src: url(../fonts/FredokaOne-Regular.ttf);
+  }
+  @font-face {
+    font-family: "Patrick";
+    src: url(../fonts/PatrickHand-Regular.ttf);
+  }
+
 body {
-    margin:0;
+    
+    font-family: "Patrick";
     background-color: white;
     /* background-image: linear-gradient(transparent 50%, rgba(255, 0, 0, .5) 50%); */
     /* background-size: 150px 150px; */
@@ -57,23 +71,25 @@ h1, h2, h3, h4 {
     margin: 0;
 }
 
-/* .page-container {
+.page-container {
     max-width: 1000px;
-} */
+}
 
 /* HEADER */
 
 .main-header {
+    
     width: 100%;
     /* margin-bottom: 20px; */
     /* background-color: rgb(28, 158, 238); */
     /* color: white; */
-    font-family:cursive;
+    font-family: "Itim";
     position: sticky;
     top:0;
-    z-index: 100;
+    /* z-index: 100; */
     background-color: white;
-    border-bottom: 4px solid  rgba(255, 0, 0, 0.5);
+    border-bottom: 4px solid   rgba(0, 97, 187, 0.541);
+    margin-bottom: 20px;
 }
 
 li {
@@ -81,7 +97,7 @@ li {
 }
 
 a:hover {
-    color: rgba(255, 0, 0, 0.5);
+    color: rgb(0, 97, 187);
 }
 
 a {
@@ -95,12 +111,11 @@ a {
 .logo {
     margin-inline-start: 20px;
     cursor: pointer;
-    font-family:cursive;
-
+    
 }
 
 .logo:hover{
-    color: rgba(255, 0, 0, 0.5);
+    color: rgb(0, 97, 187);
 }
 
 .home-img{
@@ -109,13 +124,12 @@ a {
 /* FOOTER */
 
 .main-footer {
-    background-color:  rgba(255, 0, 0, 0.5);
+    background-color:  rgb(0, 97, 187);
     color: white;
-    height: 50px;
+    height: 30px;
     position: fixed;
     bottom: 0;
-    width: 100%;
-    font-family:cursive;
+    width: 1000px;
 
 }
 
@@ -131,6 +145,8 @@ a {
 .space-between {
     justify-content: space-between;
 }
+
+
 
 
 

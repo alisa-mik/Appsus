@@ -1,5 +1,6 @@
 import { noteService } from './services/note-service.js'
 import { NoteList } from './cmps/NoteList.jsx'
+import { NewNote } from './cmps/NewNote.jsx'
 
 
 export class KeepApp extends React.Component {
@@ -29,7 +30,10 @@ export class KeepApp extends React.Component {
 
     render() {
         
+        <div className="add-note">
+            {/* <NewNote /> */}
 
+        </div>
         console.log('RENDER!');
         if (!this.state.notes) return <div>Loading...</div>
         return (
