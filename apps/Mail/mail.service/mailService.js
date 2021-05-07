@@ -1,9 +1,5 @@
-import {
-    storageService
-} from '../../../services/storage-service.js';
-import {
-    utilService
-} from '../../../services/util-service.js';
+import {storageService} from '../../../services/storage-service.js';
+import {utilService} from '../../../services/util-service.js';
 
 export const mailService = {
     _createEmails,
@@ -33,7 +29,7 @@ function query(filterBy) {
         const unReadMails = [];
 
         if (!email.isRead) {
-            console.log('unReadMails:', unReadMails)
+            // console.log('unReadMails:', unReadMails)
             gEmails.forEach((email, idx) => {
                 if (!email.isRead) {
                     unReadMails.unshift(email);
@@ -86,8 +82,6 @@ function remove(emailId) {
     _saveEmailsToStorage();
     return Promise.resolve();
 }
-
-
 
 
 function _saveEmailsToStorage() {
