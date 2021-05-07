@@ -23,20 +23,13 @@ function query(filterBy) {
     const {searchText} = filterBy;
 
     const filteredEmails = gEmails.filter(email => {
-        return email.body.includes(searchText) 
-        
-        
-    })
-    
+        return email.body.includes(searchText) ||
+        email.from.includes(searchText)||
+        email.subject.includes(searchText)||
+        email.to.includes(searchText);
+    })    
     console.log('filteredEmails:', filteredEmails)
-
-
     return Promise.resolve(filteredEmails);
-
-
-
-
-
 }
 
 function getTime() {
@@ -44,7 +37,6 @@ function getTime() {
         return new Date().toLocaleString();
     }, 1000);
 }
-
 
 function getById(emailId) {
     const email = gEmails.find(email => email.id === emailId);
@@ -55,8 +47,6 @@ function myMail() {
     return Promise.resolve(MY_MAIL);
 }
 
-
-
 function toggleIsRead(emailId) {
     const emailCopy = gEmails.find(email => email.id === emailId);
     const emailsCopy = [...gEmails];
@@ -64,7 +54,6 @@ function toggleIsRead(emailId) {
     console.log('emailCopyIdx:', emailCopyIdx)
     emailsCopy[emailCopyIdx].isRead = !emailsCopy[emailCopyIdx].isRead;
     console.log(' emailsCopy[emailCopyIdx]:',  emailsCopy[emailCopyIdx].isRead)
-    emailsCopy[emailCopyIdx].isRead.addClassName ="test";
     // if  (emailsCopy[emailCopyIdx].isRead = true){
     // };
     gEmails = emailsCopy;

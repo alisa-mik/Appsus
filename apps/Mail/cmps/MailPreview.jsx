@@ -1,9 +1,11 @@
 
 export function MailPreview({ email, onDeleteMail, onToggleIsRead }) {
+    const isReadIcon = (email.isRead) ? '021-mail' : '013-envelope';
+    const isReadClass = (!email.isRead) ? 'not-read-mail' : '';
 
     return (
 
-        <div className="email-list-line flex space-between">
+        <div className={`email-list-line  ${isReadClass} flex space-between`}>
             <section key={email.id}>
                 <div className="from-to-line flex">
                     <div className="input-container flex">
@@ -19,13 +21,11 @@ export function MailPreview({ email, onDeleteMail, onToggleIsRead }) {
                     </div>
                     <div className="btns-container flex">
                         <button className="garbage" onClick={ (ev) => onDeleteMail(ev,email.id)}>
-                            <img src='assets/icons/general.icons/1361849-interface-button/svg/002-bin.svg' />
+                            <img src='assets/icons/AppIcons/002-bin.svg' />
                         </button>
                         <button className="toggle-read"
                          onClick={(ev) => onToggleIsRead(ev, email.id)}>
-                            <img src='assets/icons/general.icons/1361849-interface-button/svg/021-mail.svg' />
-                            <img src='' />
-
+                            <img src={`assets/icons/AppIcons/${isReadIcon}.svg`} />
                         </button>
                     </div>
                 </div>

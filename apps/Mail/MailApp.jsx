@@ -47,7 +47,6 @@ export class MailApp extends React.Component {
         console.log('value:', value)
         const filterCopy = { ...this.state.filterBy };
         filterCopy[key] = value;
-        // filterCopy.isUnread = false;
         this.setState({ filterBy: filterCopy },() => this.loadEmails(this.state.filterBy))
     }
 

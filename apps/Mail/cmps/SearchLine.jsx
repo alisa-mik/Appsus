@@ -23,7 +23,8 @@ export class SearchLine extends React.Component {
             <input type="text" name="searchText"
                 value={this.state.filterBy.searchText}
                 placeholder="What are you looking for?"
-                onChange={this.handleChange}  />
+                onChange={this.handleChange}/>
+                {/* <img src='assets/icons/AppIcons/007-find.svg' /> */}
         </section>
     }
 
