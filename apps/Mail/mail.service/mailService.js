@@ -28,7 +28,6 @@ function query(filterBy) {
         email.subject.includes(searchText)||
         email.to.includes(searchText);
     })    
-    console.log('filteredEmails:', filteredEmails)
     return Promise.resolve(filteredEmails);
 }
 
@@ -51,9 +50,7 @@ function toggleIsRead(emailId) {
     const emailCopy = gEmails.find(email => email.id === emailId);
     const emailsCopy = [...gEmails];
     const emailCopyIdx = emailsCopy.findIndex(email => emailCopy.id === email.id);
-    console.log('emailCopyIdx:', emailCopyIdx)
     emailsCopy[emailCopyIdx].isRead = !emailsCopy[emailCopyIdx].isRead;
-    console.log(' emailsCopy[emailCopyIdx]:',  emailsCopy[emailCopyIdx].isRead)
     // if  (emailsCopy[emailCopyIdx].isRead = true){
     // };
     gEmails = emailsCopy;

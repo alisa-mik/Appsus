@@ -7,9 +7,6 @@ export function MailList({ emails, onUnread,getTime,onDeleteMail, onToggleIsRead
     const unreadMailsCount = emails.filter(mail => !mail.isRead) 
     return unreadMailsCount.length;
   }
-
-
-
   if (!emails || emails.length === 0) return <div>You don't have any emails...</div>;
 
   return (
