@@ -29,18 +29,20 @@ export class KeepApp extends React.Component {
 
 
     render() {
-        
-        <div className="add-note">
-            {/* <NewNote /> */}
 
-        </div>
         console.log('RENDER!');
         if (!this.state.notes) return <div>Loading...</div>
         return (
-            <div>
-                <NoteList notes={this.state.notes} />
+            <section>
+                <div className="add-note">
+                    <NewNote />
 
-            </div>
+                </div>
+                <div>
+                    <NoteList notes={this.state.notes} />
+
+                </div>
+            </section>
 
         )
     }
