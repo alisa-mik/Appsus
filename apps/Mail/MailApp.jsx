@@ -11,7 +11,7 @@ export class MailApp extends React.Component {
         unreadCount: null,
         filterBy: {
             searchText: '',
-            isUnread: false
+            isRead: false
         },
     }
 
@@ -31,6 +31,10 @@ export class MailApp extends React.Component {
     onUnread = () => {
         const unreadMails = this.state.emails.filter(mail => !mail.isRead)
         console.log('unreadMailsCount:', unreadMails)
+        const filterCopy = { ...this.state.filterBy };
+        this.state.filterBy.isRead = true;
+        filterCopy.isRead = true;
+        this.setState({ filterBy: filterCopy }, this.loadEmails)
 
         // const filterCopy = { ...this.state.filterBy };
         // filterCopy[isUnread] = true;
@@ -56,7 +60,7 @@ export class MailApp extends React.Component {
     onSetFilter = (key, value) => {
         const filterCopy = { ...this.state.filterBy };
         filterCopy[key] = value;
-        this.setState({ filterBy: filterCopy },() => this.loadEmails(this.state.filterBy))
+        this.setState({ filterBy: filterCopy }, () => this.loadEmails(this.state.filterBy))
     }
 
 
@@ -68,7 +72,7 @@ export class MailApp extends React.Component {
 
             <div>
 
-                <SearchLine setFilter={this.onSetFilter}/>
+                <SearchLine setFilter={this.onSetFilter} />
                 <MailList emails={emailsForShowing}
                     onUnread={this.onUnread} onDeleteMail={this.onDeleteMail}
                     onToggleIsRead={this.onToggleIsRead} />

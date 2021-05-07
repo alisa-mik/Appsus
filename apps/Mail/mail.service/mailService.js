@@ -1,5 +1,9 @@
-import {storageService} from '../../../services/storage-service.js';
-import {utilService} from '../../../services/util-service.js';
+import {
+    storageService
+} from '../../../services/storage-service.js';
+import {
+    utilService
+} from '../../../services/util-service.js';
 
 export const mailService = {
     _createEmails,
@@ -9,7 +13,7 @@ export const mailService = {
     toggleIsRead,
     getTime,
     remove,
-    
+
 }
 
 const KEY = 'Emails';
@@ -20,14 +24,33 @@ _createEmails();
 
 function query(filterBy) {
     if (!filterBy) return Promise.resolve(gEmails);
-    const {searchText} = filterBy;
+    const {
+        searchText,
+        isRead
+    } = filterBy;
+
+    gEmails.map(email => {
+        const unReadMails = [];
+
+        if (!email.isRead) {
+            console.log('unReadMails:', unReadMails)
+            gEmails.forEach((email, idx) => {
+                if (!email.isRead) {
+                    unReadMails.unshift(email);
+                } else {
+                    unReadMails.push(email);
+                }
+            })
+            return Promise.resolve(unReadMails);
+        }
+    })
 
     const filteredEmails = gEmails.filter(email => {
         return email.body.includes(searchText) ||
-        email.from.includes(searchText)||
-        email.subject.includes(searchText)||
-        email.to.includes(searchText);
-    })    
+            email.from.includes(searchText) ||
+            email.subject.includes(searchText) ||
+            email.to.includes(searchText)
+    })
     return Promise.resolve(filteredEmails);
 }
 
