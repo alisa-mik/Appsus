@@ -24,6 +24,7 @@ export function MailPreview({ email, onDeleteMail, onToggleIsRead }) {
                         <button className="toggle-read"
                          onClick={(ev) => onToggleIsRead(ev, email.id)}>
                             <img src='assets/icons/general.icons/1361849-interface-button/svg/021-mail.svg' />
+                            <img src='' />
 
                         </button>
                     </div>

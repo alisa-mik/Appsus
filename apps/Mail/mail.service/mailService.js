@@ -58,17 +58,18 @@ function myMail() {
 
 
 function toggleIsRead(emailId) {
-    console.log('emailId:', emailId)
-    const emailCopy = gEmails.find(email => email.id == emailId);
+    const emailCopy = gEmails.find(email => email.id === emailId);
     const emailsCopy = [...gEmails];
     const emailCopyIdx = emailsCopy.findIndex(email => emailCopy.id === email.id);
+    console.log('emailCopyIdx:', emailCopyIdx)
     emailsCopy[emailCopyIdx].isRead = !emailsCopy[emailCopyIdx].isRead;
-
-    if  (emailsCopy[emailCopyIdx].isRead = true){
-        gEmails = emailsCopy;
-        _saveEmailsToStorage();
-        return Promise.resolve();
-    };
+    console.log(' emailsCopy[emailCopyIdx]:',  emailsCopy[emailCopyIdx].isRead)
+    emailsCopy[emailCopyIdx].isRead.addClassName ="test";
+    // if  (emailsCopy[emailCopyIdx].isRead = true){
+    // };
+    gEmails = emailsCopy;
+    _saveEmailsToStorage();
+    return Promise.resolve();
 }
 
 function remove(emailId) {
@@ -182,7 +183,7 @@ function getMails() {
             to: 'asi-oren@css-master.co.il',
             subject: `תודה על הסדנא`,
             body: `אסי האלוף,
-            היתה סדנא פצצהץ  למדתי ממך הרבה. 
+            היתה סדנא פצצה.  למדתי ממך הרבה. 
             מחכה למפגש הבא, אליסה.`,
             isRead: true,
             sentAt: new Date(1623133300000).toLocaleString()
