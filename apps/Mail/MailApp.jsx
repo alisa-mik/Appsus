@@ -11,7 +11,6 @@ export class MailApp extends React.Component {
         unreadCount: null,
         filterBy: {
             searchText: '',
-            // currMailBox: 'inbox',
             isUnread: false
         },
     }
