@@ -22,6 +22,8 @@
     flex-wrap: wrap; */
     column-count: 3;
     padding: 20px;
+    margin-bottom: 15px;
+    margin-top: 20px;
  
 }
 
@@ -37,17 +39,41 @@
     height: fit-content;
     text-align: start;
     font-size: 0.9rem;
-
     background-color: lightgrey;
   
 }
 
 .note-video {
-    background-color: lightpink;
+    background-color: lightsteelblue;
   
 }
 
+.btn-remove-todo {
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-inline-start: 10px;
+}
 
+.btn-remove-todo:hover {
+    background-color: maroon;
+    color: white;
+}
+
+.note-todo {
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pinned {
+margin-bottom: 15px;
+}
+
+
+.add-note{
+    margin-bottom: 15px;
+}
 
 /* h2 {
     font-size: 40px;

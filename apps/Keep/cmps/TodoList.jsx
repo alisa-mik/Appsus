@@ -1,13 +1,7 @@
-
-
-
 import { noteService } from '../services/note-service.js'
-export class NoteVideo extends React.Component {
+import { TodoNote } from './TodoNote.jsx'
+export class TodoList extends React.Component {
 
-
-    state = {
-
-    }
     // onRemoveNote = (ev) => {
 
     //     noteService.removeNote(this.props.note)
@@ -16,15 +10,16 @@ export class NoteVideo extends React.Component {
 
     // }
     render() {
+        console.log(this.props.note.info.todos);
         return (
+
             <div>
-                <iframe width="250"
-                    src={this.props.note.info.url}>
-                </iframe>
+
+                { this.props.note.info.todos.map(todo => <TodoNote todo={todo} />)}
                 {/* <button className="btn btn-remove" onClick={this.onRemoveNote}>X</button> */}
             </div>
-
         )
     }
 }
+
 
