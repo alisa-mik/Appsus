@@ -37,7 +37,6 @@ export class Buttons extends React.Component {
     }
 
     onPalleteChoose = (ev) => {
-        // console.log(this.props.note); 
         var cssClass = ""
         switch (ev.target.id) {
             case "red": {

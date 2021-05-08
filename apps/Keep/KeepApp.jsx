@@ -23,10 +23,15 @@ export class KeepApp extends React.Component {
             })
     }
 
-    handler = () => {
+    handler = (search=false, recNotes=null) => {
+        console.log(this.state.notes); 
         this.setState({
             renderPage: true
         });
+        if (search && recNotes) {
+            console.log(recNotes); 
+            this.setState({ notes: recNotes })
+        }
     }
 
     render() {

@@ -9,12 +9,20 @@ export const noteService = {
     pinNote,
     removeTodo,
     updateTodo,
-    updateBgColor
+    updateBgColor,
+    searchNote
 }
 
 const KEY = 'notes'
 
 var notes = getNotes()
+
+function searchNote(txt) {
+    var searchedNotes = notes.filter(note =>  note.type.toLowerCase().includes(txt.toLowerCase()) )
+    console.log(notes);
+    console.log(searchedNotes);
+    return searchedNotes
+}
 
 function addNote(noteType, text) {
     var note = {}
@@ -52,32 +60,27 @@ function _addTextNote(note, text) {
 
     note['type'] = "NoteText"
     note['info']['txt'] = text
-    note['style']['backgroundColor'] = 'lightgrey'
+    note['style']['cssClass'] = 'note note-txt'
 }
 
 function _addImgNote(note, text) {
     note['type'] = "NoteImg"
     note['info']['url'] = text
-    note['style']['backgroundColor'] = 'lightyellow'
+    note['style']['cssClass'] = 'note note-image'
 }
 
 function _addVideoNote(note, text) {
     note['type'] = "NoteVideo"
     note['info']['url'] = text
-    note['style']['backgroundColor'] = 'lightsteelblue'
+    note['style']['cssClass'] = 'note note-video'
 }
-//     todos: [
-//         { txt: "Do that", doneAt: null, id:utilService.makeId() },
-//         { txt: "Do this", doneAt: 187111111, id:utilService.makeId() }
-//     ]
-// }
 function _addTodoNote(note, text) {
     note['type'] = "NoteTodos"
     note['info']['todos'] = []
-    note['style']['backgroundColor'] = 'pink'
+    note['style']['cssClass'] = 'note todos-container'
     var todos = text.split(',')
     todos.forEach((todo, Idx) => {
-        note['info']['todos'].push({'txt' : todo , 'id' : utilService.makeId()})
+        note['info']['todos'].push({ 'txt': todo, 'id': utilService.makeId() })
     })
 }
 
@@ -86,10 +89,14 @@ function _addTodoNote(note, text) {
 function removeTodo(note, todo) {
     const todoIdx = note.info.todos.findIndex(todoItem => todoItem.id === todo.id)
     note.info.todos.splice(todoIdx, 1)
-    
+
+    if (note.info.todos.length == 0) {
+        return removeNote(note)
+    }
+
     const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
     notes.splice(noteIdx, 1, note)
-    
+
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }
@@ -102,12 +109,13 @@ function updateTodo(note, todo) {
 
     const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
     notes.splice(noteIdx, 1, note)
-    
+
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }
 
 function removeNote(note) {
+    console.log(notes);
     const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
     notes.splice(noteIdx, 1)
     storageService.saveToStorage(KEY, notes)
@@ -127,7 +135,6 @@ function pinNote(note) {
 function updateBgColor(note) {
     const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
     notes.splice(noteIdx, 1, note)
-    console.log(note);
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }
