@@ -104,9 +104,14 @@ function getMails() {
             from: MY_MAIL,
             to: 'codingacademy@misterbit.co.il',
             subject: `תודה רבה על ההנחה`,
-            body: ` היי מוריה.
-            תודה רבה על ההנחה שארגנת לי. קצת לא נעים לי לשלם פחות מכולם אבל אני אחיה עם זה. `,
+            body: ` .היי מוריה
+            
+            .תודה רבה על ההנחה שארגנת לי
+
+             קצת לא נעים לי לשלם פחות מכולם 
+             .אבל אני אחיה עם זה `,
             isRead: true,
+            isHebrew: true,
             sentAt: new Date(1623145300000).toLocaleString()
         },
         {
@@ -114,10 +119,11 @@ function getMails() {
             from: MY_MAIL,
             to: 'rabanut@org.co.il',
             subject: `הדרכת כלה`,
-            body: `שלום רב,
-            האם ניתן לזרז את תהליך הדרכת הכלה על מנת שנוכל להתחתן מהר יותר?
+            body: `,שלום רב
+            ?האם ניתן לזרז את תהליך הדרכת הכלה על מנת שנוכל להתחתן מהר יותר
             `,
             isRead: true,
+            isHebrew: true,
             sentAt: new Date(1622226400000).toLocaleString()
         },
         {
@@ -125,10 +131,15 @@ function getMails() {
             from: 'info@beerandbeyond.com‏',
             fromName: 'Beer And Beyond',
             to: MY_MAIL,
-            subject: `תודה שקנית אצלינו!`,
-            body: `היי אריק, תודה רבה על ההזמנה! מעריכים את זה שבחרתם להזמין דרכנו ובטוחים שתהנו מהמוצרים. אם בחרתם באופציה של איסוף עצמי יש לחכות לאישור מאיתנו שההזמנה מוכנה. אם בחרתם באופציה של משלוח,
-             תקבלו מאיתנו בקרוב עדכון לגבי צפי ההגעה ו/או מספר מעקב `,
+            subject: `!תודה שקנית אצלינו`,
+            body: `,היי אריק 
+            !תודה רבה על ההזמנה 
+            .מעריכים את זה שבחרתם להזמין דרכנו ובטוחים שתהנו מהמוצרים 
+            .אם בחרתם באופציה של איסוף עצמי, יש לחכות לאישור מאיתנו שההזמנה מוכנה
+             ,אם בחרתם באופציה של משלוח
+             .תקבלו מאיתנו בקרוב עדכון לגבי צפי ההגעה ו/או מספר מעקב `,
             isRead: false,
+            isHebrew: true,
             sentAt: new Date(1623196100000).toLocaleString()
         },
         {
@@ -146,6 +157,7 @@ function getMails() {
 
             ${utilService.makeLorem(100)}`,
             isRead: false,
+            isHebrew: false,
             sentAt: new Date(1113196400000).toLocaleString()
         },
         {
@@ -153,15 +165,16 @@ function getMails() {
             from: 'alona-barkat@HBS.co.il',
             fromName: 'הפועל באר שבע ',
             to: MY_MAIL,
-            subject: `בוא לאמן אותנו`,
-            body: `אריק היקר,
+            subject: `!בוא לאמן אותנו`,
+            body: `,אריק היקר
             
-            למרות שאמרת לנו מיליון פעמים שהתחלת ללמוד ויחסית זה בסדר לך,
-            אנחנו ממש צריכים אותך בקבוצה.
+            ,למרות שאמרת לנו מיליון פעמים שהתחלת ללמוד ויחסית זה בסדר לך
+            .אנחנו ממש צריכים אותך בקבוצה
             
-            בבקשה תשקול את זה שוב.
-            מחכה לתשובתך, אלונה.`,
+            .בבקשה תשקול את זה שוב
+            .מחכה לתשובתך, אלונה`,
             isRead: false,
+            isHebrew: true,
             sentAt: new Date(1623112300000).toLocaleString()
         },
         {
@@ -178,6 +191,7 @@ function getMails() {
             If necessary, we will also fund free food and someone to wash dishes every evening.
             Please reply us soon.`,
             isRead: false,
+            isHebrew: false,
             sentAt: new Date(1323196400000).toLocaleString()
         },
         {
@@ -185,10 +199,11 @@ function getMails() {
             from: MY_MAIL,
             to: 'asi-oren@css-master.co.il',
             subject: `תודה על הסדנא`,
-            body: `אסי האלוף,
-            היתה סדנא פצצה.  למדתי ממך הרבה. 
-            מחכה למפגש הבא, אליסה.`,
+            body: `,אסי האלוף
+            .היתה סדנא פצצה.  למדתי ממך הרבה 
+            .מחכה למפגש הבא, אליסה`,
             isRead: true,
+            isHebrew: true,
             sentAt: new Date(1623133300000).toLocaleString()
         },
         {
@@ -198,11 +213,12 @@ function getMails() {
             to: MY_MAIL,
             cc: '',
             subject: `בקשת תרומה`,
-            body: `צדיקים יקרים,
-            כמו בכל שנה, נשמח לקבל את תרומתכם הקבועה.
-            יחד איתכם נגיע ליעד שלנו לגיוס הכספים, 
-            ובכל זאת נמשיך להתקשר אליכם לבקש שוב. `,
+            body: `,צדיקים יקרים
+            .כמו בכל שנה, נשמח לקבל את תרומתכם הקבועה
+            ,יחד איתכם נגיע ליעד שלנו לגיוס הכספים 
+            .ובכל זאת נמשיך להתקשר אליכם לבקש שוב `,
             isRead: false,
+            isHebrew: true,
             sentAt: new Date(1000096400000).toLocaleString()
         },
         {
@@ -219,6 +235,7 @@ function getMails() {
             This is not a scam. Give me your credit card information.
             Love you very much.`,
             isRead: false,
+            isHebrew: false,
             sentAt: new Date(1611196400000).toLocaleString()
         },
         {
@@ -234,6 +251,7 @@ function getMails() {
              we would like to give you a 10% off discount
               for your next purchase.`,
             isRead: false,
+            isHebrew: false,
             sentAt: new Date(1123196400000).toLocaleString()
         },
         {
@@ -251,6 +269,7 @@ function getMails() {
             Easily check your credit usage by visiting the Cloud Billing section
              of your Google Cloud Console`,
             isRead: false,
+            isHebrew: false,
             sentAt: new Date(1623191400000).toLocaleString()
         },
         {
@@ -264,6 +283,7 @@ function getMails() {
               to check out the repository or visit @alisa-mik
                to learn a bit more about them.`,
             isRead: true,
+            isHebrew: false,
             sentAt: new Date(1623156400000).toLocaleString()
         },
         {
@@ -308,6 +328,7 @@ function getMails() {
             4. הכניסה למתחם המיצג מותנית בחבישת מסיכה.
             5. לרווחת המבקרים, הוצבו ברחבי המתחם עמדות לחיטוי הידיים. ​`,
             isRead: true,
+            isHebrew: true,
             sentAt: new Date(1623196400000).toLocaleString()
         },
 

@@ -81,15 +81,15 @@ export class MailApp extends React.Component {
                 <MailList emails={emailsForShowing}
                     onUnread={this.onUnread} onDeleteMail={this.onDeleteMail}
                     onToggleIsRead={this.onToggleIsRead} />
-                <Switch>
+                {/* <Switch>
 
-                    <Route path="/email/:emailId" render={() =>
+                    <Route path="/mail/:emailId" render={() =>
                         <MailDetails onBack={this.onCloseMail}
                             onDeleteMail={this.onDeleteMail}
                             onToggleIsRead={this.onToggleIsRead}
                             onReply={this.onReply}
                             onSaveToNotes={this.onSaveToNotes} />} />
-                </Switch>
+                </Switch> */}
 
             </div>
 

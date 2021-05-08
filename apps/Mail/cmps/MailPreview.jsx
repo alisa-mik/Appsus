@@ -4,7 +4,7 @@ export function MailPreview({ email, onDeleteMail, onToggleIsRead }) {
     const isReadIcon = (email.isRead) ? '028-email-4' : '031-email-1';
     const isReadClass = (!email.isRead) ? 'not-read-mail' : '';
     return (
-        <Link to={`/email/${email.id}`}>
+        <Link to={`/mail/${email.id}`}>
 
             <div className={`email-list-line  ${isReadClass} flex space-between`}>
                 <section key={email.id} className="hover">
