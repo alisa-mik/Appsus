@@ -6,7 +6,7 @@ export class NoteTodos extends React.Component {
     render() {
         return (
             <div>
-                { <TodoList note={this.props.note} />}
+                { <TodoList note={this.props.note} renderParent={this.props.renderParent}/>}
             </div>
         )
     }

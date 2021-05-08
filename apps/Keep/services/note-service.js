@@ -5,7 +5,9 @@ export const noteService = {
     getNotes,
     query,
     addNote,
-    removeNote
+    removeNote,
+    pinNote,
+    removeTodo
 }
 
 const KEY = 'notes'
@@ -16,29 +18,25 @@ function addNote(noteType, text) {
     var note = {}
     note['id'] = utilService.makeId()
     note['type'] = ""
-    note['isPinned'] = ""
+    note['isPinned'] = false
     note['style'] = {}
     note['info'] = {}
 
-    console.log(noteType);
     switch (noteType) {
         case "txt": {
-            console.log('case text');
             _addTextNote(note, text)
             break;
         }
         case "img": {
-            console.log('case image');
             _addImgNote(note, text)
             break;
         }
         case "vid": {
-            console.log('case video');
             _addVideoNote(note, text)
             break;
         }
         case "todo": {
-            console.log('case todo');
+            _addTodoNote(note, text)
             break;
         }
     }
@@ -66,13 +64,48 @@ function _addVideoNote(note, text) {
     note['info']['url'] = text
     note['style']['backgroundColor'] = 'lightsteelblue'
 }
+//     todos: [
+//         { txt: "Do that", doneAt: null, id:utilService.makeId() },
+//         { txt: "Do this", doneAt: 187111111, id:utilService.makeId() }
+//     ]
+// }
+function _addTodoNote(note, text) {
+    note['type'] = "NoteTodos"
+    note['info']['todos'] = []
+    note['style']['backgroundColor'] = 'pink'
+    var todos = text.split(',')
+    todos.forEach((todo, Idx) => {
+        note['info']['todos'].push({'txt' : todo , 'id' : utilService.makeId()})
+    })
+}
+
+
+
+function removeTodo(note, todo) {
+
+    
+    const todoIdx = note.info.todos.findIndex(todoItem => todoItem.id === todo.id)
+    note.info.todos.splice(todoIdx, 1)
+    
+    const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
+    notes.splice(noteIdx, 1, note)
+    
+    storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
+}
 
 function removeNote(note) {
-    console.log(note);
     const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
-console.log(noteIdx);
-
     notes.splice(noteIdx, 1)
+    storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
+}
+
+
+function pinNote(note) {
+    const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
+
+    notes[noteIdx].isPinned = !notes[noteIdx].isPinned
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }
@@ -82,7 +115,7 @@ function getNotes() {
     if (!notes) {
 
         notes = [
-            {   
+            {
                 id: utilService.makeId(),
                 isPinned: false,
                 type: "NoteVideo",
@@ -136,12 +169,13 @@ function getNotes() {
                 isPinned: true,
                 type: "NoteTodos",
                 info: {
-                    label: "How was it:",
-                    txt: 'bla bla bla',
                     todos: [
-                        { txt: "Do that", doneAt: null, id:utilService.makeId() },
-                        { txt: "Do this", doneAt: 187111111, id:utilService.makeId() }
+                        { txt: "Do that", doneAt: null, id: utilService.makeId() },
+                        { txt: "Do this", doneAt: 187111111, id: utilService.makeId() }
                     ]
+                },
+                style: {
+                    backgroundColor: "pink"
                 }
             },
             {
@@ -163,7 +197,6 @@ function getNotes() {
 }
 
 function query() {
-    console.log('query');
     return Promise.resolve(notes)
 
 }

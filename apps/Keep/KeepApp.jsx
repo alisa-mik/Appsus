@@ -5,46 +5,47 @@ import { NewNote } from './cmps/NewNote.jsx'
 
 export class KeepApp extends React.Component {
 
-
     state = {
-        notes: null
+        notes: null,
+        renderPage: null
     }
 
-    componentDidMount() {
+    componentDidMount=()=> {
         this.loadNotes()
 
     }
 
-    loadNotes() {
-        console.log('loadnotes');
+    loadNotes =() => {
         noteService.query()
             .then((notes) => {
-                // console.log(notes);
                 this.setState({ notes })
-                console.log(this.state.notes);
 
             })
     }
 
+    handler = () => {
+        this.setState({
+            renderPage: true
+        });
+    }
 
     render() {
 
-        console.log('RENDER!');
         if (!this.state.notes) return <div>Loading...</div>
         return (
             <section>
                 <div className="add-note">
-                    <NewNote />
+                    <NewNote renderParent={this.handler}/>
 
                 </div>
                 <div className="pinned">
                     <h4>Pinned</h4>
-                    <NoteList notes={this.state.notes} isPinned={true}/>
+                    <NoteList notes={this.state.notes} isPinned={true} renderParent={this.handler}/>
 
                 </div>
                 <div className="other-notes">
                     <h4>Other notes</h4>
-                    <NoteList notes={this.state.notes} isPinned={false}/>
+                    <NoteList notes={this.state.notes} isPinned={false} renderParent={this.handler}/>
 
                 </div>
             </section>

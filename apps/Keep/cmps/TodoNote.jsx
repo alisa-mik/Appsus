@@ -1,3 +1,5 @@
+import { noteService } from '../services/note-service.js'
+
 export class TodoNote extends React.Component {
 
 
@@ -6,17 +8,15 @@ export class TodoNote extends React.Component {
     }
     onRemoveTodo = (ev) => {
 
-        //noteService.removeNote(this.props.note)
-        // TODO: Render page
-        // this.props.history.push('/keep')
-
+        noteService.removeTodo(this.props.note, this.props.todo)
+        this.props.renderParent()
     }
+
     render() {
-        console.log(this.props.todo);
         return (
-        <div className="note-todo">
-           <p>{this.props.todo.txt}</p> <button id={this.props.todo} className="btn btn-remove-todo" onClick={this.onRemoveTodo}>X</button>
-        </div>
+            <div className="note-todo">
+                <p>{this.props.todo.txt}</p> <button id={this.props.todo} className="btn btn-remove-todo" onClick={this.onRemoveTodo}>X</button>
+            </div>
         )
     }
 }

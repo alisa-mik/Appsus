@@ -1,13 +1,12 @@
 import {noteService} from '../services/note-service.js'
 
-export class NewNote extends React.Component {
-    
+export class NewNote extends React.Component {   
 
     state={
         selectedBtn: 'txt',
         txt: {
             txt : 'Whats on your mind...',
-            img : 'Whats image on your mind...',
+            img : 'Enter image url...',
             vid : 'Enter video url...',
             todo: 'Enter comma separated list...'
 
@@ -16,26 +15,24 @@ export class NewNote extends React.Component {
     }
     onChangeType = (ev) => {
      
-        console.log(ev.target.id)
         this.setState({selectedBtn : ev.target.id})
-        // console.log(this.state.selectedBtn);
     }
 
     handleKeyPress = (ev) => {
-
         if(event.key === 'Enter'){
-          console.log(this.state.selectedBtn, ev.target.value)
+          if (ev.target.value==="") return
           noteService.addNote(this.state.selectedBtn, ev.target.value)
-          // TODO: need to render parent 
-          //this.props.history.push('/car')
+          ev.target.value = ""
+          this.setState({selectedBtn: this.state.selectedBtn})
+          this.props.renderParent()
         }
       }
     
 
     render() {
+      
       return (
-           <div className="new-note">
-
+          <div className="new-note">
             <input id="new-note-input" type="text" placeholder={this.state.txt[this.state.selectedBtn]} onKeyPress={this.handleKeyPress}/>
             <button id="txt" onClick={this.onChangeType}>txt</button>
             <button id="img" onClick={this.onChangeType}>img</button>

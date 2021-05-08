@@ -10,12 +10,11 @@ export class TodoList extends React.Component {
 
     // }
     render() {
-        console.log(this.props.note.info.todos);
         return (
 
             <div>
 
-                { this.props.note.info.todos.map(todo =>  <TodoNote key={todo.id} todo={todo} />)}
+                { this.props.note.info.todos.map(todo =>  <TodoNote key={todo.id} todo={todo} renderParent={this.props.renderParent} note={this.props.note} />)}
                 {/* <button className="btn btn-remove" onClick={this.onRemoveNote}>X</button> */}
             </div>
         )

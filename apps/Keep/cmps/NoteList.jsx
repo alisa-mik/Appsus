@@ -4,11 +4,6 @@ import { noteService } from '../services/note-service.js'
 export class NoteList extends React.Component {
 
 
-    state = {
-        messageShown: null
-    }
-
-
     loadListNotes = () => {
         var notesToDisplay = []
         if (this.props.isPinned) {
@@ -21,29 +16,22 @@ export class NoteList extends React.Component {
                 return note.isPinned === false
             })
         }
-        console.log(notesToDisplay);
         return notesToDisplay
     }
     onRemoveNote = (ev) => {
 
         noteService.removeNote(this.props.note)
         // TODO: Render page
-        // this.props.history.push('/keep')
 
     }
 
-    handler = () => {
-        this.setState({
-            messageShown: true
-        });
-    }
+
 
     render() {
-        console.log("in render");
         var notesToDisplay = this.loadListNotes()
         return (
             <div className="note-list">
-                {notesToDisplay.map(note => <NotePreview note={note} key={note.id} renderParent={this.handler} />)}
+                {notesToDisplay.map(note => <NotePreview note={note} key={note.id} renderParent={this.props.renderParent} />)}
             </div>
         )
     }
