@@ -11,7 +11,6 @@ export class KeepApp extends React.Component {
     }
 
     componentDidMount() {
-        console.log('MOUNT!');
         this.loadNotes()
 
     }
@@ -38,8 +37,14 @@ export class KeepApp extends React.Component {
                     <NewNote />
 
                 </div>
-                <div>
-                    <NoteList notes={this.state.notes} />
+                <div className="pinned">
+                    <h4>Pinned</h4>
+                    <NoteList notes={this.state.notes} isPinned={true}/>
+
+                </div>
+                <div className="other-notes">
+                    <h4>Other notes</h4>
+                    <NoteList notes={this.state.notes} isPinned={false}/>
 
                 </div>
             </section>

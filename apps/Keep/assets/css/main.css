@@ -57,13 +57,36 @@ iframe {
 }
 
 .note-video {
-    background-color: lightpink;
+    background-color: lightsteelblue;
+  
 }
 
-img {
+.btn-remove-todo {
     border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-inline-start: 10px;
 }
 
+.btn-remove-todo:hover {
+    background-color: maroon;
+    color: white;
+}
+
+.note-todo {
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pinned {
+margin-bottom: 15px;
+}
+
+
+.add-note{
+    margin-bottom: 15px;
+}
 
 /* h2 {
     font-size: 40px;

@@ -1,9 +1,15 @@
-export function NoteTodos({note}) {
-    return (
-        <div className="note note-todos">
-            
-            <button className="btn btn-remove">&#10007;</button>
-         </div>
+import { noteService } from '../services/note-service.js'
+import { TodoList } from './TodoList.jsx'
 
-    )
+export class NoteTodos extends React.Component {
+
+    render() {
+        return (
+            <div>
+                { <TodoList note={this.props.note} />}
+            </div>
+        )
+    }
 }
+
+
