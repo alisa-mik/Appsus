@@ -15,7 +15,7 @@ export class TodoNote extends React.Component {
         console.log(this.props.todo);
         return (
         <div className="note-todo">
-           <p>{this.props.todo.txt}</p> <button className="btn btn-remove-todo" onClick={this.onRemoveTodo}>X</button>
+           <p>{this.props.todo.txt}</p> <button id={this.props.todo} className="btn btn-remove-todo" onClick={this.onRemoveTodo}>X</button>
         </div>
         )
     }

@@ -15,7 +15,7 @@ export class TodoList extends React.Component {
 
             <div>
 
-                { this.props.note.info.todos.map(todo => <TodoNote todo={todo} />)}
+                { this.props.note.info.todos.map(todo =>  <TodoNote key={todo.id} todo={todo} />)}
                 {/* <button className="btn btn-remove" onClick={this.onRemoveNote}>X</button> */}
             </div>
         )

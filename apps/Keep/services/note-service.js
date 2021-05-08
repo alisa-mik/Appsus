@@ -139,8 +139,8 @@ function getNotes() {
                     label: "How was it:",
                     txt: 'bla bla bla',
                     todos: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }
+                        { txt: "Do that", doneAt: null, id:utilService.makeId() },
+                        { txt: "Do this", doneAt: 187111111, id:utilService.makeId() }
                     ]
                 }
             },
