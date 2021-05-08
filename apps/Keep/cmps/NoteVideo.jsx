@@ -5,7 +5,7 @@ export function NoteVideo({ note }) {
             <iframe width="250"
                 src={note.info.url}>
             </iframe>
-            <button className="btn btn-remove">X</button>
+            <button className="btn btn-remove">&#10007;</button>
         </div>
 
     )

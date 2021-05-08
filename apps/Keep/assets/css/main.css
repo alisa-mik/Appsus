@@ -1,14 +1,19 @@
 * {
     box-sizing: border-box;
-  }
+}
+
+.note-list {
+    margin: auto;
+}
 
 .note {
     padding: 20px;
-    width:300px;
+    width: 300px;
     box-shadow: 2px 2px 3px 2px #7e7d7d78;
-    margin-inline-end: 20px;
+    /* margin-inline-end: 20px; */
     margin-bottom: 20px;
     page-break-inside: avoid;
+    border-radius: 20px;
 
 }
 
@@ -22,7 +27,15 @@
     flex-wrap: wrap; */
     column-count: 3;
     padding: 20px;
- 
+
+}
+
+button {
+    background-color: rgba(0, 97, 187, 0.541);
+    border: 1px solid rgba(0, 97, 187, 0.241);
+    border-radius: 20px;
+    color: white;
+    /* border: none; */
 }
 
 .note-image {
@@ -30,23 +43,26 @@
 }
 
 .image {
-   width: 250px;
+    width: 250px;
 }
-
+iframe {
+    border-radius: 20px;
+}
 .note-txt {
     height: fit-content;
     text-align: start;
-    font-size: 0.9rem;
-
+    font-size: 1rem;
     background-color: lightgrey;
-  
+    color: white;
 }
 
 .note-video {
     background-color: lightpink;
-  
 }
 
+img {
+    border-radius: 20px;
+}
 
 
 /* h2 {
@@ -85,9 +101,9 @@
 
 
 @media (max-width: 1000px) {
-    
+
     .note-list {
-    column-count: 2;
+        column-count: 2;
     }
 }
 
