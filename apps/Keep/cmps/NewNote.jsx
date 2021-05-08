@@ -7,7 +7,7 @@ export class NewNote extends React.Component {
         selectedBtn: 'txt',
         txt: {
             txt : 'Whats on your mind...',
-            img : 'Enter image url...',
+            img : 'Whats image on your mind...',
             vid : 'Enter video url...',
             todo: 'Enter comma separated list...'
 

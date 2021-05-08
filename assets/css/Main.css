@@ -24,6 +24,7 @@ body {
     /* background-image: linear-gradient(transparent 50%, rgba(255, 0, 0, .5) 50%); */
     /* background-size: 150px 150px; */
     text-align: center;
+    margin:0;
 }
 
 h2 {
@@ -72,7 +73,7 @@ h1, h2, h3, h4 {
 }
 
 .page-container {
-    max-width: 1000px;
+    max-width: 100%;
 }
 
 /* HEADER */
@@ -96,8 +97,13 @@ li {
     margin-inline-end: 20px;
 }
 
+button, input{
+    cursor: pointer;
+}
+
 a:hover {
     color: rgb(0, 97, 187);
+    font-style: oblique;
 }
 
 a {
@@ -111,11 +117,11 @@ a {
 .logo {
     margin-inline-start: 20px;
     cursor: pointer;
-    
 }
 
 .logo:hover{
     color: rgb(0, 97, 187);
+    font-style: oblique;
 }
 
 .home-img{
@@ -129,8 +135,7 @@ a {
     height: 30px;
     position: fixed;
     bottom: 0;
-    width: 1000px;
-
+    width: 100%;
 }
 
 

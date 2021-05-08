@@ -1,9 +1,8 @@
 const { Link } = ReactRouterDOM;
 
 export function MailPreview({ email, onDeleteMail, onToggleIsRead }) {
-    const isReadIcon = (email.isRead) ? '021-mail' : '013-envelope';
+    const isReadIcon = (email.isRead) ? '028-email-4' : '031-email-1';
     const isReadClass = (!email.isRead) ? 'not-read-mail' : '';
-
     return (
         <Link to={`/email/${email.id}`}>
 
@@ -23,15 +22,14 @@ export function MailPreview({ email, onDeleteMail, onToggleIsRead }) {
                         </div>
                         <div className="btns-container flex">
                             <button className="garbage" onClick={(ev) => onDeleteMail(ev, email.id)}>
-                                <img src='assets/icons/AppIcons/002-bin.svg' />
+                                <img src='assets/icons/mail.icons/982377-communication/svg/007-email-25.svg' />
                             </button>
                             <button className="toggle-read"
                                 onClick={(ev) => onToggleIsRead(ev, email.id)}>
-                                <img src={`assets/icons/AppIcons/${isReadIcon}.svg`} />
+                                <img src={`assets/icons/mail.icons/982377-communication/svg/${isReadIcon}.svg`} />
                             </button>
                         </div>
                     </div>
-
                     <div className="subject-body-time flex">
                         <div className="subject flex">
                             Subject: {email.subject.substr(0, 40)}
