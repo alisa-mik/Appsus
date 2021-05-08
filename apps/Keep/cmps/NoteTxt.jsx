@@ -17,7 +17,7 @@ export class NoteTxt extends React.Component {
     render() {
         return (
             <div >
-                <p>{this.props.note.info.txt}</p>
+                <p className="txt-note">{this.props.note.info.txt}</p>
                 {/* <button className="btn btn-remove" onClick={this.onRemoveNote}>X</button> */}
             </div>
 

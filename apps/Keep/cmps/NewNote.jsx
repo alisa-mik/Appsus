@@ -14,7 +14,6 @@ export class NewNote extends React.Component {
         
     }
     onChangeType = (ev) => {
-     
         this.setState({selectedBtn : ev.target.id})
     }
 
@@ -33,11 +32,11 @@ export class NewNote extends React.Component {
       
       return (
           <div className="new-note">
-            <input id="new-note-input" type="text" placeholder={this.state.txt[this.state.selectedBtn]} onKeyPress={this.handleKeyPress}/>
-            <button id="txt" onClick={this.onChangeType}>txt</button>
-            <button id="img" onClick={this.onChangeType}>img</button>
-            <button id="vid" onClick={this.onChangeType}>Video</button>
-            <button id="todo" onClick={this.onChangeType}>todos</button>
+            <input id="new-note-input" className="input-new" type="text" placeholder={this.state.txt[this.state.selectedBtn]} onKeyPress={this.handleKeyPress}/>
+            <button onClick={this.onChangeType} ><i id="txt" className="icon-new material-icons">description</i></button>
+            <button onClick={this.onChangeType}><i id="img" className="icon-new material-icons">image</i></button>
+            <button onClick={this.onChangeType}><i  id="vid" className="icon-new material-icons">smart_display</i></button>
+            <button onClick={this.onChangeType}><i id="todo" className="icon-new material-icons">format_list_bulleted</i></button>
 
            </div>
      )}

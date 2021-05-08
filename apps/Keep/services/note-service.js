@@ -7,7 +7,9 @@ export const noteService = {
     addNote,
     removeNote,
     pinNote,
-    removeTodo
+    removeTodo,
+    updateTodo,
+    updateBgColor
 }
 
 const KEY = 'notes'
@@ -82,11 +84,22 @@ function _addTodoNote(note, text) {
 
 
 function removeTodo(note, todo) {
-
-    
     const todoIdx = note.info.todos.findIndex(todoItem => todoItem.id === todo.id)
     note.info.todos.splice(todoIdx, 1)
     
+    const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
+    notes.splice(noteIdx, 1, note)
+    
+    storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
+}
+
+function updateTodo(note, todo) {
+    const todoIdx = note.info.todos.findIndex(todoItem => todoItem.id === todo.id)
+    todo.isDone = !todo.isDone
+
+    note.info.todos.splice(todoIdx, 1, todo)
+
     const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
     notes.splice(noteIdx, 1, note)
     
@@ -110,6 +123,16 @@ function pinNote(note) {
     return Promise.resolve()
 }
 
+
+function updateBgColor(note) {
+    const noteIdx = notes.findIndex(noteItem => noteItem.id === note.id)
+    notes.splice(noteIdx, 1, note)
+    console.log(note);
+    storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
+}
+
+
 function getNotes() {
     var notes = storageService.loadFromStorage(KEY)
     if (!notes) {
@@ -120,10 +143,10 @@ function getNotes() {
                 isPinned: false,
                 type: "NoteVideo",
                 info: {
-                    url: "https://www.youtube.com/embed/E39GIysMevQ?autoplay=1&mute=1"
+                    url: "https://www.youtube.com/embed/tXA3K5861t8?autoplay=1&mute=1"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    cssClass: "note note-video"
                 }
             },
             {
@@ -131,7 +154,10 @@ function getNotes() {
                 isPinned: true,
                 type: "NoteText",
                 info: {
-                    txt: "Fullstack Me Baby!"
+                    txt: "Today you are you! That is truer than true! There is no one alive who is you-er than you!"
+                },
+                style: {
+                    cssClass: "note note-txt"
                 }
             },
             {
@@ -139,10 +165,10 @@ function getNotes() {
                 isPinned: false,
                 type: "NoteImg",
                 info: {
-                    url: "https://www.mouthymoney.co.uk/wp-content/uploads/2020/07/two-yellow-labrador-retriever-puppies-1108099-1-scaled.jpg"
+                    url: "https://www.pngkey.com/png/detail/480-4807259_dr-seuss-images-public-domain-cat-in-the.png"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    cssClass: "note note-image"
                 }
             },
             {
@@ -150,7 +176,10 @@ function getNotes() {
                 isPinned: true,
                 type: "NoteText",
                 info: {
-                    txt: "Another note!"
+                    txt: "A person's a person, no matter how small."
+                },
+                style: {
+                    cssClass: "note note-txt"
                 }
             },
             {
@@ -158,10 +187,10 @@ function getNotes() {
                 isPinned: true,
                 type: "NoteVideo",
                 info: {
-                    url: "https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1",
+                    url: "https://www.youtube.com/embed/L1gqN5VzNHc?autoplay=1&mute=1",
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    cssClass: "note note-video"
                 }
             },
             {
@@ -170,12 +199,12 @@ function getNotes() {
                 type: "NoteTodos",
                 info: {
                     todos: [
-                        { txt: "Do that", doneAt: null, id: utilService.makeId() },
-                        { txt: "Do this", doneAt: 187111111, id: utilService.makeId() }
+                        { txt: "Watch Dr. Seuss", isDone: true, id: utilService.makeId() },
+                        { txt: "Read Dr. Seuss", isDone: false, id: utilService.makeId() }
                     ]
                 },
                 style: {
-                    backgroundColor: "pink"
+                    cssClass: "note todos-container"
                 }
             },
             {
@@ -183,10 +212,10 @@ function getNotes() {
                 isPinned: true,
                 type: "NoteImg",
                 info: {
-                    url: "https://www.mouthymoney.co.uk/wp-content/uploads/2020/07/two-yellow-labrador-retriever-puppies-1108099-1-scaled.jpg",
+                    url: "https://www.pngkey.com/png/detail/900-9001351_hosue-clipart-dr-seuss-clipart-dr-seuss-book.png",
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    cssClass: "note note-image"
                 }
             }
 

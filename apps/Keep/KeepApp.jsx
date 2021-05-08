@@ -33,7 +33,7 @@ export class KeepApp extends React.Component {
 
         if (!this.state.notes) return <div>Loading...</div>
         return (
-            <section>
+            <section className="all-container">
                 <div className="add-note">
                     <NewNote renderParent={this.handler}/>
 
