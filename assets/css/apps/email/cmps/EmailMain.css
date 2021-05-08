@@ -92,8 +92,11 @@
     display: flex;
     flex-direction: column;
     color:dimgray;
+    cursor: pointer;
 
 }
+
+
 
 .from-to-line {
     margin-left: 20px;

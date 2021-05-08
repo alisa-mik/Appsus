@@ -9,7 +9,7 @@ export const mailService = {
     toggleIsRead,
     getTime,
     remove,
-    
+
 }
 
 const KEY = 'Emails';
@@ -20,15 +20,33 @@ _createEmails();
 
 function query(filterBy) {
     if (!filterBy) return Promise.resolve(gEmails);
-    const {searchText} = filterBy;
+    const {
+        searchText,
+        isRead
+    } = filterBy;
+
+    gEmails.map(email => {
+        const unReadMails = [];
+
+        if (!email.isRead) {
+            // console.log('unReadMails:', unReadMails)
+            gEmails.forEach((email, idx) => {
+                if (!email.isRead) {
+                    unReadMails.unshift(email);
+                } else {
+                    unReadMails.push(email);
+                }
+            })
+            return Promise.resolve(unReadMails);
+        }
+    })
 
     const filteredEmails = gEmails.filter(email => {
         return email.body.includes(searchText) ||
-        email.from.includes(searchText)||
-        email.subject.includes(searchText)||
-        email.to.includes(searchText);
-    })    
-    console.log('filteredEmails:', filteredEmails)
+            email.from.includes(searchText) ||
+            email.subject.includes(searchText) ||
+            email.to.includes(searchText)
+    })
     return Promise.resolve(filteredEmails);
 }
 
@@ -51,9 +69,7 @@ function toggleIsRead(emailId) {
     const emailCopy = gEmails.find(email => email.id === emailId);
     const emailsCopy = [...gEmails];
     const emailCopyIdx = emailsCopy.findIndex(email => emailCopy.id === email.id);
-    console.log('emailCopyIdx:', emailCopyIdx)
     emailsCopy[emailCopyIdx].isRead = !emailsCopy[emailCopyIdx].isRead;
-    console.log(' emailsCopy[emailCopyIdx]:',  emailsCopy[emailCopyIdx].isRead)
     // if  (emailsCopy[emailCopyIdx].isRead = true){
     // };
     gEmails = emailsCopy;
@@ -66,8 +82,6 @@ function remove(emailId) {
     _saveEmailsToStorage();
     return Promise.resolve();
 }
-
-
 
 
 function _saveEmailsToStorage() {
