@@ -44,12 +44,13 @@ export class KeepApp extends React.Component {
 
                 </div>
                 <div className="pinned">
-                    <h4>Pinned</h4>
+                    <h3 class="pinned-title">Pinned</h3>
                     <NoteList notes={this.state.notes} isPinned={true} renderParent={this.handler}/>
 
                 </div>
+          <hr/>
                 <div className="other-notes">
-                    <h4>Other notes</h4>
+                    <h3 class="other-title">Other notes</h3>
                     <NoteList notes={this.state.notes} isPinned={false} renderParent={this.handler}/>
 
                 </div>

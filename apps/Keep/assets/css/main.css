@@ -2,18 +2,20 @@
     box-sizing: border-box;
 }
 
+    
+.add-note{
+    margin-bottom: 15px;
+}
 
 input {
     all:unset;
-    height: 25px;
-    width: 250px;
+    height: 40px;
+    width: 300px;
     border: 1px solid lightgrey;
     margin-inline-end: 10px;
+    font-size: 1.3rem;
 }
 
-.all-container {
-    text-align: center;
-}
 .icon-new {
     font-size: 30px;
     padding-top: 5px;
@@ -28,9 +30,6 @@ input {
     align-items: center;
 }
 
-.note-todo-txt {
-    /* text-decoration: line-through; */
-}
 
 .line-through {
     text-decoration: line-through;
@@ -48,27 +47,36 @@ input {
 
 .note-list {
  
-    column-count: 3;
-    column-gap: 20px;
-    padding: 20px;
+    column-count: auto;
+    /* column-gap: 20px; */
+    /* padding: 20px; */
+    margin: 0 auto;
+    max-width: 950px;
+    column-width: 300px;
 }
 
 .buttons {
     display: block;
 }
 
-
 .buttons-no-display {
     display: none;
 }
 
-
-button {
-    all:unset;
-    color: rgb(126, 126, 126);
-    margin-inline-end: 5px;
-   
+.other-title, .pinned-title {
+    font-size: 30px;
+    text-align: start;
+    margin-inline-start: 20px;
 }
+
+.pinned {
+    margin-bottom: 15px;
+}
+    
+
+    
+
+/********* COLOR PICKER *******/
 
 .picker {
     height: 20px;
@@ -85,20 +93,26 @@ button {
     background-color: lightskyblue;
 }
 .purple-picker {
-    background-color: rgb(213, 108, 255);
+    background-color: rgb(233, 177, 255);
 }
 .yellow-picker {
     background-color: lightyellow;
 }
 
 
+button {
+    all:unset;
+    color: rgb(126, 126, 126);
+    margin-inline-end: 5px;
+   
+}
+
 button:hover {
     color: rgb(0, 0, 0);
 }
 
-.material-icons:active {
-    color: black;
-}
+
+/******* NOTES ******/
 
 .note-image {
     background-color: rgb(241, 241, 173);
@@ -114,7 +128,7 @@ button:hover {
 }
 .note-video {
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .note-txt {
     height: fit-content;
@@ -128,8 +142,15 @@ button:hover {
   
 }
 
+//******TODOS*******//
+
 .todos-container{
     background-color: pink;
+    
+}
+
+.note-todo {
+    font-size: 1.3rem;
 }
 .btn-remove-todo {
     border-radius: 20px;
@@ -149,21 +170,14 @@ button:hover {
     justify-content: space-between;
 }
 
-.pinned {
-margin-bottom: 15px;
-}
-
-
-.add-note{
-    margin-bottom: 15px;
-}
 
 
 @media (max-width: 1000px) {
  
     .note-list {
-        column-count: 2;
-        margin: auto;
+        /* column-count: 2;
+        margin: auto; */
+        column-count: auto;
     }
  
     }
@@ -171,8 +185,13 @@ margin-bottom: 15px;
 
 @media (max-width: 670px) {
     
-    .note-list {
+    /* .note-list {
     column-count: 1;
+    } */
+    .note-list {
+        /* column-count: 2;
+        margin: auto; */
+        column-count: auto;
     }
     .new-note{
         display: inherit;
